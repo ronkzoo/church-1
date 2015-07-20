@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- For assistance related to logback-translator or configuration  -->
+<!-- files in general, please contact the logback user mailing list -->
+<!-- at http://www.qos.ch/mailman/listinfo/logback-user             -->
+<!--                                                                -->
+<!-- For professional support please see                            -->
+<!--    http://www.qos.ch/shop/products/professionalSupport         -->
+<!--                                                                -->
+<configuration>
+    <!-- 콘솔 출력 -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <!--
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} - [%c{1}] [%p] %m %n</pattern>
+            -->
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss}] [%c] [%L] [%p] %m %n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>DEBUG</level>
+        </filter>
+    </appender>
+
+    <!-- 로깅 출력 파일 저장 -->
+    <!--<appender name="FILE" class="ch.qos.logback.core.FileAppender">-->
+        <!--<charset>UTF-8</charset>-->
+        <!--<file>D:\dev-project\workspace\log\LogAppender-File.log</file>-->
+        <!--<append>true</append>-->
+        <!--<encoder>-->
+            <!--<pattern>[%d{yyyy-MM-dd HH:mm:ss}] [%c] [%L] [%p] %m %n</pattern>-->
+        <!--</encoder>-->
+    <!--</appender>-->
+
+    <!-- SQL 로깅 출력 파일 저장 (파일 날짜별로 분리) -->
+    <!--<appender name="ROLLING_FILE_SQL" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+        <!--<charset>UTF-8</charset>-->
+        <!--<file>D:\dev-project\workspace\log\LogAppender-SQL.log</file>-->
+        <!--<append>true</append>-->
+        <!--<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
+            <!--&lt;!&ndash; daily rollover &ndash;&gt;-->
+            <!--<fileNamePattern>D:\dev-project\workspace\log\LogAppender-SQL.%d{yyyy-MM-dd}.log</fileNamePattern>-->
+            <!-- -->
+            <!--&lt;!&ndash; keep 1 days' worth of history &ndash;&gt;-->
+            <!--<maxHistory>1</maxHistory>-->
+        <!--</rollingPolicy>-->
+        <!--<encoder>-->
+            <!--<pattern>[%d{yyyy-MM-dd HH:mm:ss}] [%c] [%L] [%p] %m %n</pattern>-->
+        <!--</encoder>-->
+    <!--</appender>-->
+    
+    <!-- Request 로깅 출력 파일 저장 (파일 날짜별로 분리) -->
+    <!--<appender name="ROLLING_FILE_REQUEST" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+        <!--<charset>UTF-8</charset>-->
+        <!--<file>D:\dev-project\workspace\log\LogAppender-Request.log</file>-->
+        <!--<append>true</append>-->
+        <!--<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
+            <!--&lt;!&ndash; daily rollover &ndash;&gt;-->
+            <!--<fileNamePattern>D:\dev-project\workspace\log\LogAppender-Request.%d{yyyy-MM-dd}.log</fileNamePattern>-->
+            <!-- -->
+            <!--&lt;!&ndash; keep 1 days' worth of history &ndash;&gt;-->
+            <!--<maxHistory>1</maxHistory>-->
+        <!--</rollingPolicy>-->
+        <!--<encoder>-->
+            <!--<pattern>[%d{yyyy-MM-dd HH:mm:ss}] [%c] [%L] [%p] %m %n</pattern>-->
+        <!--</encoder>-->
+    <!--</appender>-->
+
+    <!-- Response 로깅 출력 파일 저장 (Exception 발생시) -->
+    <!--<appender name="ROLLING_FILE_EXCEPTION" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+        <!--<charset>UTF-8</charset>-->
+        <!--<file>D:\dev-project\workspace\log\LogAppender-Exception.log</file>-->
+        <!--<append>true</append>-->
+        <!--<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
+            <!--&lt;!&ndash; daily rollover &ndash;&gt;-->
+            <!--<fileNamePattern>D:\dev-project\workspace\log\LogAppender-Exception.%d{yyyy-MM-dd}.log</fileNamePattern>-->
+            <!-- -->
+            <!--&lt;!&ndash; keep 1 days' worth of history &ndash;&gt;-->
+            <!--<maxHistory>1</maxHistory>-->
+        <!--</rollingPolicy>-->
+        <!--<encoder>-->
+            <!--<pattern>[%d{yyyy-MM-dd HH:mm:ss}] [%c] [%L] [%p] %m %n</pattern>-->
+        <!--</encoder>-->
+    <!--</appender>-->
+
+    <!--&lt;!&ndash; 로깅정보 데이터베이스 저장 (JNDI 사용) &ndash;&gt;-->
+    <!--<appender name="DB_REQUEST" class="ch.qos.logback.classic.db.DBAppender">-->
+        <!--<connectionSource class="ch.qos.logback.core.db.JNDIConnectionSource">-->
+            <!--<jndiLocation>java:comp/env/jdbc/nwframeworkdb</jndiLocation>-->
+        <!--</connectionSource>-->
+    <!--</appender>-->
+
+    <!--&lt;!&ndash; Request 로깅정보 파일 저장 &ndash;&gt;-->
+    <!--<logger name="egovframework.com.cmm.interceptor.CrudLogInterceptor" level="DEBUG">-->
+        <!--<appender-ref ref="ROLLING_FILE_REQUEST"/>-->
+    <!--</logger>-->
+    <!-- -->
+    <!--&lt;!&ndash; Response Exception 로깅정보 파일 & 데이터베이스 동시 저장 &ndash;&gt;-->
+    <!--<logger name="egovframework.com.cmm.EgovComExcepHndlr" level="ERROR">-->
+        <!--<appender-ref ref="ROLLING_FILE_EXCEPTION"/>-->
+        <!--<appender-ref ref="DB_REQUEST"/>-->
+    <!--</logger>-->
+
+    <!-- SQL 문 저장 -->
+    <logger name="jdbc.sqlonly"        level="INFO"/>
+    <logger name="jdbc"                level="OFF" />
+    <logger name="log4jdbc.debug"      level="OFF" />
+    <logger name="jdbc.resultsettable" level="INFO" />
+    <logger name="jdbc.sqltiming"      level="INFO" />
+    <logger name="org.apache.commons"  level="OFF" />
+    <logger name="org.apache.tiles"    level="OFF" />
+    <logger name="org.springframework" level="INFO" />
+    <logger name="com.ronkzoo" level="DEBUG" />
+
+    <root level="DEBUG">
+        <appender-ref ref="STDOUT" />
+    </root>
+</configuration>
