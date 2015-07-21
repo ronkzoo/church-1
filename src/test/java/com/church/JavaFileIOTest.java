@@ -114,29 +114,12 @@ public class JavaFileIOTest {
             e.printStackTrace();
 
         } finally {
-
-            try {
-                fis.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            try {
-                isr.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            try {
-                br.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
+            try { fis.close(); } catch (IOException e) { e.printStackTrace(); }
+            try { isr.close(); } catch (IOException e) { e.printStackTrace(); }
+            try { br.close(); } catch (IOException e) { e.printStackTrace(); }
         }
     }
 }
-
 
 
 
