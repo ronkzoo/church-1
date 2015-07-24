@@ -27,7 +27,7 @@ public class CalendarController extends HttpServlet {
     /** **/
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    @RequestMapping(value = "/calendar")
+    @RequestMapping(value = "/Calendar")
     public ModelAndView getCalendarPage(HttpServletRequest request, HttpServletResponse response, Model model) {
 
         Calendar cal = Calendar.getInstance();
