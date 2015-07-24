@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<!--  
+    마이바티스 설정.xml
+-->	
+<configuration>
+ 	<settings>  
+        <setting name="cacheEnabled"              value="true"/>  
+        <setting name="lazyLoadingEnabled"        value="true"/>  
+        <setting name="multipleResultSetsEnabled" value="true"/>  
+        <setting name="useColumnLabel"            value="true"/>  
+        <setting name="useGeneratedKeys"          value="false"/>  
+        <setting name="defaultExecutorType"       value="SIMPLE"/>  
+        <setting name="defaultStatementTimeout"   value="25000"/>  
+        <setting name="mapUnderscoreToCamelCase"  value="true"/>  <!-- 전통적인 데이터베이스 칼럼명 형태인 A_COLUMN을 CamelCase형태의 자바 프로퍼티명 형태인 aColumn으로 자동으로 매핑하도록 함 -->
+    </settings>
+
+	<!-- MyBatis 가 PreparedStatement 에 파라미터를 셋팅하고 ResultSet 에서 값을 가져올때마다, 
+	TypeHandler 는 적절한 자바 타입의 값을 가져오기 위해 사용된다. 다음의 표는 디폴트 TypeHandlers 를 설명한다.. 
+	-->
+<!-- 	<typeHandlers>
+        Oracle 부적절한 열 유형 관련 오류 처리
+        <typeHandler javaType="String"             handler="egovframework.com.cmm.mapper.type.StringNullTypeHandler"/>
+        <typeHandler javaType="java.util.Date"     handler="egovframework.com.cmm.mapper.type.DateNullTypeHandler"/>
+        <typeHandler javaType="java.lang.Integer"  handler="egovframework.com.cmm.mapper.type.IntegerNullTypeHandler"/>
+	</typeHandlers> -->
+
+	<!--이 설정에서, “Blog” 는 도처에서 “domain.blog.Blog” 대신 사용될 수 있다.
+		MyBatis가 빈을 참도록 패키지를 명시할 수 있다.   -->
+	<typeAliases>	
+		<package name="com.church"/>
+	</typeAliases>
+
+<!--    java.sql.Timestamp 를 java.util.Date 형으로 반환-->
+    <typeHandlers>
+        <typeHandler handler="org.apache.ibatis.type.DateTypeHandler" javaType="java.sql.Timestamp" />
+        <typeHandler handler="org.apache.ibatis.type.DateTypeHandler" javaType="java.sql.Time" />
+        <typeHandler handler="org.apache.ibatis.type.DateTypeHandler" javaType="java.sql.Date" />
+
+
+    </typeHandlers>
+</configuration>	
+
+
+
+
