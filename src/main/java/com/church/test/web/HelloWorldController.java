@@ -31,6 +31,18 @@ public class HelloWorldController extends HttpServlet {
         return "jsonTemplate";
     }
 
+    @RequestMapping("/template")
+    public String HelloWorld2(HttpServletRequest request, Model model){
+        HelloWorldVo hello = new HelloWorldVo() ;
+
+        hello.setId("leeminuk");
+        hello.setName("이민욱");
+
+        model.addAttribute("hello",hello);
+
+        return "test";
+    }
+
 
 
 }
