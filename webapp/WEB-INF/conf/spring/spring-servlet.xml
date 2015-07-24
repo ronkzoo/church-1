@@ -19,6 +19,7 @@
 
     <mvc:annotation-driven />
 
+    <!-- interceptors -->
     <mvc:interceptors>
         <bean class="org.springframework.web.servlet.mvc.WebContentInterceptor">
             <property name="cacheSeconds" value="0" />
