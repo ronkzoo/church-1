@@ -23,6 +23,10 @@
         <bean class="org.springframework.web.servlet.mvc.WebContentInterceptor">
             <property name="cacheSeconds" value="0" />
         </bean>
+        <mvc:interceptor>
+            <mvc:mapping path="/church/**"/>
+            <bean class="com.church.common.interceptor.ChurchCommonInterceptor"/>
+        </mvc:interceptor>
     </mvc:interceptors>
 
     <!-- fileupload -->
