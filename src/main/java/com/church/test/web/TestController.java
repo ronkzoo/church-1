@@ -8,19 +8,25 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-/**
- * Created by ronkzoo on 2015. 7. 25..
- */
 @Controller("testController")
-@RequestMapping("/test")
+@RequestMapping(value = "/test")
 public class TestController {
 
     private Logger logger= LoggerFactory.getLogger(this.getClass());
 
-    @RequestMapping(value = "taglib/{name}")
-    public String returnString(@PathVariable String name, Model model) {
-        logger.debug("do here ");
-        return "/test/taglib/" + name;
+    @RequestMapping("taglib/{name}")
+    public ModelAndView returnString(@PathVariable String name, Model model) {
+        return new ModelAndView("/test/taglib/" + name);
     }
+
+
+    @RequestMapping("{name}")
+    public String test(@PathVariable String name, Model model) {
+
+        model.addAttribute("hello","hello");
+        logger.debug("leeminuk");
+        return "template/test/"+name;
+    }
+
 
 }

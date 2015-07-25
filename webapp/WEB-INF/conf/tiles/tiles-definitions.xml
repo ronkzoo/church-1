@@ -15,8 +15,9 @@
     </definition>
 
     <!-- Test Template -->
-    <definition name="test/taglib/*" extends="defaultTemplate">
-        <put-attribute name="contents"      value="/WEB-INF/jsp/pages/test/taglib/{1}.jsp" />
+    <definition name="template/*/*" extends="defaultTemplate">
+        <put-attribute name="contents"      value="/WEB-INF/jsp/pages/{1}/{2}.jsp" />
     </definition>
+
 
 </tiles-definitions>

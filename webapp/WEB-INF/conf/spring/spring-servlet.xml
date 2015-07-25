@@ -22,11 +22,22 @@
 
     <!-- interceptors -->
     <mvc:interceptors>
-        <bean class="org.springframework.web.servlet.mvc.WebContentInterceptor">
-            <property name="cacheSeconds" value="0" />
-        </bean>
         <mvc:interceptor>
-            <mvc:mapping path="/church/**"/>
+            <mvc:mapping path="/**"/>
+            <mvc:exclude-mapping path="/js/**"/>
+            <mvc:exclude-mapping path="/gumby2/**"/>
+            <mvc:exclude-mapping path="/style/**"/>
+            <mvc:exclude-mapping path="/image/**"/>
+            <bean class="org.springframework.web.servlet.mvc.WebContentInterceptor">
+                <property name="cacheSeconds" value="0" />
+            </bean>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <mvc:exclude-mapping path="/js/**"/>
+            <mvc:exclude-mapping path="/gumby2/**"/>
+            <mvc:exclude-mapping path="/style/**"/>
+            <mvc:exclude-mapping path="/image/**"/>
             <bean class="com.church.common.interceptor.ChurchCommonInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
@@ -37,4 +48,7 @@
     </bean>
 
     <mvc:annotation-driven />
+
+    <bean class="org.springframework.web.servlet.handler.SimpleServletHandlerAdapter"/>
+
 </beans>

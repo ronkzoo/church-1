@@ -18,15 +18,19 @@ import org.springframework.web.context.WebApplicationContext;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 /**
  * Created by ronkzoo on 2015. 7. 25..
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {
-                "classpath:context-datasource.xml",
-                "classpath:context-transactionManager.xml"
+            "classpath:/props/common-properties.xml",
+            "classpath:/props/datasource-properties.xml",
+            "classpath:/spring/context-common.xml",
+            "classpath:/spring/context-datasource.xml",
+            "classpath:/spring/context-transactionManager.xml"
 })
-@TransactionConfiguration(transactionManager = "transactionManager", defaultRollback = false)
+@TransactionConfiguration(transactionManager = "txManager", defaultRollback = true)
 @Transactional
 @WebAppConfiguration
 public class WebAppContextUserControllerTest {
@@ -51,7 +55,6 @@ public class WebAppContextUserControllerTest {
         this.mockMvc
                 .perform(get("/hello2/leeminuk").param("name","leeminuk"))
                 .andExpect((status().isOk()));
-
     }
 
 }

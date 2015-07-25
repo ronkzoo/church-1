@@ -8,5 +8,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://www.springframework.org/tags"  prefix="spring" %>
 util test
-<spring:eval expression="@code['global.dbtype']"> </spring:eval>
+<spring:eval expression="@code['global.dbtype']" />
+<spring:eval expression="@code['code.test']"/>
+<spring:eval expression="@code['code.test']"/>
 <spring:nestedPath path="" />
+source modify

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <comment>dataSourceProperties</comment>
+    <entry key="url">jdbc:mysql://web-messanger.c0sakyriy048.ap-northeast-1.rds.amazonaws.com:3306/church</entry>
+    <entry key="user">sexyuck</entry>
+    <entry key="password">clsmouse00</entry>
+</properties>

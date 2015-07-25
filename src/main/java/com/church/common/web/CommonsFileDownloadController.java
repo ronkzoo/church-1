@@ -16,7 +16,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URLEncoder;
-
 /**
  * Created by LeeRyu on 2015-07-20.
  * com.church.common.web

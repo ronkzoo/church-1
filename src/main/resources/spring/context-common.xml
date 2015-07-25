@@ -45,6 +45,6 @@
         properties
      -->
 <!--    <util:properties id="validation" location="classpath:messenger/message/validator/validation.properties"/>-->
-    <util:properties id="code"        location="classpath*:props/properties.xml"/>
-
+    <util:properties id="code"        location="classpath*:props/common-properties.xml"/>
+    <util:properties id="dbconfig"  location="classpath*:props/datasource-properties.xml"/>
 </beans>

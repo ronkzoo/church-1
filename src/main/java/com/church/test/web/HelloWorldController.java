@@ -16,31 +16,31 @@ import javax.servlet.http.HttpServletRequest;
  * JsonTemplate
  */
 @Controller("helloworldController")
-public class HelloWorldController extends HttpServlet {
+@RequestMapping(value = "/hello")
+public class HelloWorldController {
 
     private Logger logger= LoggerFactory.getLogger(this.getClass());
 
-    @RequestMapping("/hello")
+    @RequestMapping("list")
     public String HelloWorld(HttpServletRequest request, Model model){
         HelloWorldVo hello = new HelloWorldVo() ;
 
         hello.setId("leeminuk");
         hello.setName("이민욱");
 
-        model.addAttribute("hello",hello);
+        model.addAttribute("hello", hello);
 
         return "jsonTemplate";
     }
 
-    @RequestMapping("/hello/{name}")
+    @RequestMapping("{name}")
     public String HelloWorld2(@PathVariable String name,  Model model){
         HelloWorldVo hello = new HelloWorldVo() ;
 
-        model.addAttribute("hello",hello);
-
-        return "test/"+name;
+        model.addAttribute("hello", hello);
+        logger.debug("/hello/name ");
+        return "template/test/"+name;
     }
-
 
 
 }

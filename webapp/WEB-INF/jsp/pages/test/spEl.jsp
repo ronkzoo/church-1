@@ -9,6 +9,7 @@
 <%@ taglib uri="http://www.springframework.org/tags"  prefix="spring" %>
 
 <spring:eval expression="@code['global.dbtype']"> </spring:eval>
+<spring:eval expression="@code['global.dbtype']"> </spring:eval>
 <spring:nestedPath path=""/>
 <spring:bind path="" htmlEscape=""/>
 <spring:argument value="" />
