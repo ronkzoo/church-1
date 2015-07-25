@@ -7,31 +7,26 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page trimDirectiveWhitespaces="true" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core"              prefix="c"	    %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions"         prefix="fn"     %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"               prefix="fmt"    %>
-<%@ taglib uri="http://tiles.apache.org/tags-tiles"             prefix="tiles"  %>
-<%@ taglib uri="http://www.springframework.org/tags"            prefix="spring" %>
-<%@ taglib uri="http://www.springframework.org/security/tags"   prefix="sec"    %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <!DOCTYPE html>
-<html lang="${config.language}">
+<html lang="kr">
 <head>
-  <title><tiles:insertAttribute name="title" /></title>
-  <tiles:insertAttribute name="head" />
+    <title><tiles:insertAttribute name="title"/></title>
+    <tiles:insertAttribute name="head"/>
 </head>
 <body>
-<tiles:insertAttribute name="top" />
-<div class="container">
-  <div class="row">
-    <div class="col-md-2">
-      <tiles:insertAttribute name="left" />
+    <tiles:insertAttribute name="top"/>
+    <tiles:insertAttribute name="left"/>
+    <div class="col-xs-12">
+        <tiles:insertAttribute name="contents"/>
     </div>
-    <div class="col-md-10" role="main">
-      <tiles:insertAttribute name="contents" />
-    </div>
-  </div>
-</div>
-<tiles:insertAttribute name="bottom" />
-<tiles:insertAttribute name="javascript" />
+    <tiles:insertAttribute name="bottom"/>
+    <tiles:insertAttribute name="javascript"/>
+
 </body>
 </html>

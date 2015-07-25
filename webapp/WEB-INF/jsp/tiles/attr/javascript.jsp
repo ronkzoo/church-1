@@ -40,3 +40,4 @@
 <script src="/gumby2/js/libs/gumby.init.js"></script>
 <script src="/gumby2/js/plugins.js"></script>
 <script src="/gumby2/js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>

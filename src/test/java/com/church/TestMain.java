@@ -14,7 +14,6 @@ import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.sql.DataSource;
-import java.util.Calendar;
 
 /**
  * Created by com on 2015. 7. 14..
@@ -22,7 +21,7 @@ import java.util.Calendar;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration( {
                     "classpath:context-datasource.xml",
-                    "classpath:context-transactionManager.xml"
+        "classpath:spring/context-transactionManager.xml"
 })
 @TransactionConfiguration(transactionManager = "transactionManager", defaultRollback = false)
 @Transactional

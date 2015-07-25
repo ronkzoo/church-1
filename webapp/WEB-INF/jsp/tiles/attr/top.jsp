@@ -7,3 +7,6 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
+  <!-- gnb -->
+  <jsp:include page="/WEB-INF/jsp/pages/hmpg/include/include_gnb.jsp"/>
+
