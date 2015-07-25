@@ -14,7 +14,7 @@
 <%@ taglib uri="http://www.springframework.org/tags"            prefix="spring" %>
 <%@ taglib uri="http://www.springframework.org/security/tags"   prefix="sec"    %>
 <!DOCTYPE html>
-<html lang="${config.language}">
+<html lang="kr">
 <head>
   <title><tiles:insertAttribute name="title" /></title>
   <tiles:insertAttribute name="head" />

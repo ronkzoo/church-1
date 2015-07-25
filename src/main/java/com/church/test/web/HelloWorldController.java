@@ -5,6 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServlet;
@@ -31,16 +32,13 @@ public class HelloWorldController extends HttpServlet {
         return "jsonTemplate";
     }
 
-    @RequestMapping("/template")
-    public String HelloWorld2(HttpServletRequest request, Model model){
+    @RequestMapping("/hello/{name}")
+    public String HelloWorld2(@PathVariable String name,  Model model){
         HelloWorldVo hello = new HelloWorldVo() ;
-
-        hello.setId("leeminuk");
-        hello.setName("이민욱");
 
         model.addAttribute("hello",hello);
 
-        return "test";
+        return "test/"+name;
     }
 
 

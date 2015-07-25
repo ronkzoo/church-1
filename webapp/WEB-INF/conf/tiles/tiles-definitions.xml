@@ -3,20 +3,20 @@
         "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
         "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
+
     <!-- default template -->
-    <definition name="test" template="/WEB-INF/jsp/tiles/template/default-layout.jsp">
+    <definition name="defaultTemplate" template="/WEB-INF/jsp/tiles/template/default-layout.jsp">
         <put-attribute name="title"         value="영도복음교회" type="string" />
         <put-attribute name="head"          value="/WEB-INF/jsp/tiles/attr/head.jsp" />
         <put-attribute name="javascript"    value="/WEB-INF/jsp/tiles/attr/javascript.jsp" />
         <put-attribute name="top"           value="/WEB-INF/jsp/tiles/attr/top.jsp" />
         <put-attribute name="left"          value="/WEB-INF/jsp/tiles/attr/left.jsp" />
-        <put-attribute name="contents"      value="/WEB-INF/jsp/pages/ronkzoo/test/test.jsp" />
         <put-attribute name="bottom"        value="/WEB-INF/jsp/tiles/attr/footer.jsp" />
     </definition>
 
-    <definition name="main" template="/WEB-INF/jsp/tiles/template/default-layout.jsp">
-        <put-attribute name="title"         value="영도복음교회" type="string" />
-        <put-attribute name="head"          value="/WEB-INF/jsp/tiles/attr/head.jsp" />
+    <!-- Test Template -->
+    <definition name="test/taglib/*" extends="defaultTemplate">
+        <put-attribute name="contents"      value="/WEB-INF/jsp/pages/test/taglib/{1}.jsp" />
     </definition>
 
 </tiles-definitions>

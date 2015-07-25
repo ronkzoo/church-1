@@ -7,17 +7,18 @@
     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
     http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-    <context:component-scan base-package="com" />
+    <context:component-scan base-package="com" >
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
+    </context:component-scan>
 
-    <!-- -->
     <mvc:resources mapping="/gumby2/**" location="/resources/gumby2/" cache-period="31556926"/>
     <mvc:resources mapping="/js/**"     location="/resources/js/" cache-period="86400"/>
     <mvc:resources mapping="/style/**"  location="/resources/style/" cache-period="86400"/>
     <mvc:resources mapping="/image/**"  location="/resources/image/" cache-period="86400"/>
 
     <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean" />
-
-    <mvc:annotation-driven />
 
     <!-- interceptors -->
     <mvc:interceptors>
