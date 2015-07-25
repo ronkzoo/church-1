@@ -45,7 +45,7 @@ public class TestMain extends Assert{
         query.append("select * from category ");
 
         JdbcTemplate select = new JdbcTemplate(dataSource);
-        int cnt = select.queryForInt("select count(*) from category");
+        int cnt = select.queryForInt("select count(*) from ");
         logger.debug(" cnt:::::: "+cnt);
         assertTrue(cnt > 0);
 
