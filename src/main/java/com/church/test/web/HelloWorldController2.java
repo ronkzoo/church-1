@@ -21,6 +21,9 @@ public class HelloWorldController2 {
            HelloWorldVo hello = new HelloWorldVo();
            hello.setName("이민욱");
            hello.setId("com");
+
+           logger.debug(hello.toString());
+
            return hello;
        }
 
@@ -30,6 +33,9 @@ public class HelloWorldController2 {
            HelloWorldVo hello = new HelloWorldVo();
            hello.setName(name);
            hello.setId("com");
+
+            logger.debug(hello.toString());
+
            return hello;
        }
 

@@ -9,9 +9,9 @@
               <property name="dataSourceClassName"       value="com.mysql.jdbc.jdbc2.optional.MysqlDataSource" />
               <property name="dataSourceProperties">
                      <props>
-                            <prop key="url">jdbc:mysql://localhost:3306/test</prop>
-                            <prop key="user">ronkzoo</prop>
-                            <prop key="password">gkgkgk7</prop>
+                            <prop key="url">jdbc:mysql://web-messanger.c0sakyriy048.ap-northeast-1.rds.amazonaws.com:3306/church</prop>
+                            <prop key="user">sexyuck</prop>
+                            <prop key="password">clsmouse00</prop>
                      </props>
               </property>
        </bean>
