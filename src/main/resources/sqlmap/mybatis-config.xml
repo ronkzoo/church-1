@@ -28,20 +28,26 @@
         <typeHandler javaType="java.lang.Integer"  handler="egovframework.com.cmm.mapper.type.IntegerNullTypeHandler"/>
 	</typeHandlers> -->
 
-	<!--이 설정에서, “Blog” 는 도처에서 “domain.blog.Blog” 대신 사용될 수 있다.
-		MyBatis가 빈을 참도록 패키지를 명시할 수 있다.   -->
+	<!--
+	    이 설정에서, “Blog” 는 도처에서 “domain.blog.Blog” 대신 사용될 수 있다.
+		MyBatis가 빈을 참도록 패키지를 명시할 수 있다.
+		별칭 등록
+	-->
 	<typeAliases>	
 		<package name="com.church"/>
 	</typeAliases>
 
-<!--    java.sql.Timestamp 를 java.util.Date 형으로 반환-->
+    <!-- java.sql.Timestamp 를 java.util.Date 형으로 반환-->
     <typeHandlers>
         <typeHandler handler="org.apache.ibatis.type.DateTypeHandler" javaType="java.sql.Timestamp" />
         <typeHandler handler="org.apache.ibatis.type.DateTypeHandler" javaType="java.sql.Time" />
         <typeHandler handler="org.apache.ibatis.type.DateTypeHandler" javaType="java.sql.Date" />
-
-
     </typeHandlers>
+
+    <!-- Register all interfaces in a package as mappers -->
+<!--    <mappers>
+        <package name="com.church" />
+    </mappers>-->
 </configuration>	
 
 

@@ -22,7 +22,7 @@
             <div class="dropdown">
                 <ul>
                     <li><a href="/test/prop" about="prop Test">spEl Test</a></li>
-                    <li><a href="/board">공통 게시판</a></li>
+                    <li><a href="/a/b">공통 게시판</a></li>
                     <li><a href="/member/login">로그인</a></li>
                     <li><a href="/upload">파일업로드</a></li>
                     <li><a href="/hello/list">JSON TEST</a></li>

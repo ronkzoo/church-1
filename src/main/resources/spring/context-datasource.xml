@@ -3,30 +3,31 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-       <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
-       <property name="poolName"                 value="springHikariCP" />
-       <property name="connectionTestQuery"      value="SELECT 1" />
-       <property name="dataSourceClassName"      value="com.mysql.jdbc.jdbc2.optional.MysqlDataSource" />
-       <property name="dataSourceProperties">
-              <props>
-                     <prop key="url">#{dbconfig['url']}</prop>
-                     <prop key="user">#{dbconfig['user']}</prop>
-                     <prop key="password">#{dbconfig['password']}</prop>
-              </props>
-       </property>
-</bean>
+    <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+        <property name="poolName" value="springHikariCP"/>
+        <property name="connectionTestQuery" value="SELECT 1"/>
+        <property name="dataSourceClassName" value="com.mysql.jdbc.jdbc2.optional.MysqlDataSource"/>
+        <property name="dataSourceProperties">
+            <props>
+                <prop key="url">#{dbconfig['url']}</prop>
+                <prop key="user">#{dbconfig['user']}</prop>
+                <prop key="password">#{dbconfig['password']}</prop>
+            </props>
+        </property>
+    </bean>
 
-       <bean id="dataSource-spies" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
-              <constructor-arg ref="hikariConfig" />
-       </bean>
+    <bean id="dataSource-spies" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
+        <constructor-arg ref="hikariConfig"/>
+    </bean>
 
-       <bean id="dataSource" class="net.sf.log4jdbc.Log4jdbcProxyDataSource">
-              <constructor-arg ref="dataSource-spies" />
-              <property name="logFormatter">
-                     <bean class="net.sf.log4jdbc.tools.Log4JdbcCustomFormatter">
-                            <property name="loggingType" value="MULTI_LINE" />
-                            <property name="sqlPrefix"   value="::::::::::::::::::::::::::SQL:::::::::::::::::::::\r\n" />
-                     </bean>
-              </property>
-       </bean>
+    <bean id="dataSource" class="net.sf.log4jdbc.Log4jdbcProxyDataSource">
+        <constructor-arg ref="dataSource-spies"/>
+        <property name="logFormatter">
+            <bean class="net.sf.log4jdbc.tools.Log4JdbcCustomFormatter">
+                <property name="loggingType" value="MULTI_LINE"/>
+                <property name="sqlPrefix"
+                          value="::::::::::::::::::::::::::SQL:::::::::::::::::::::\r\n"/>
+            </bean>
+        </property>
+    </bean>
 </beans>

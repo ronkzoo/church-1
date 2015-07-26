@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloWorldController2 {
 
-       private Logger logger= LoggerFactory.getLogger(this.getClass());
+    /*   private Logger logger= LoggerFactory.getLogger(this.getClass());
 
         @Value("#{code['code.test']}")
         private String test;
@@ -42,7 +42,7 @@ public class HelloWorldController2 {
            logger.debug(hello.toString());
 
            return hello;
-       }
+       }*/
 
 
 }
