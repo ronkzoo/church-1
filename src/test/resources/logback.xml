@@ -113,9 +113,11 @@
 
     <logger name="org.apache.commons"  level="OFF" />
     <logger name="org.apache.tiles"    level="OFF" />
-    <logger name="org.springframework" level="INFO" />
+    <logger name="org.springframework" level="ERROR" />
+    <logger name="com.church" level="DEBUG" />
+    <logger name="com.zaxxer" level="ERROR" />
 
-    <root level="DEBUG">
+    <root level="ERROR">
         <appender-ref ref="STDOUT" />
     </root>
 </configuration>

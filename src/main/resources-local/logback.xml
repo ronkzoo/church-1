@@ -108,8 +108,8 @@
     <logger name="jdbc.sqltiming"      level="INFO" />
     <logger name="org.apache.commons"  level="OFF" />
     <logger name="org.apache.tiles"    level="OFF" />
-    <logger name="org.springframework" level="INFO" />
-    <logger name="com.ronkzoo" level="DEBUG" />
+    <logger name="org.springframework" level="ERROR" />
+
 
     <root level="DEBUG">
         <appender-ref ref="STDOUT" />

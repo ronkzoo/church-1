@@ -22,7 +22,9 @@ public class RESTConfiguration {
 
     @Bean
     public ViewResolver viewResolver() {
-        return new BeanNameViewResolver();
+        BeanNameViewResolver resolver = new BeanNameViewResolver();
+        resolver.setOrder(0);
+        return resolver;
     }
 
 }

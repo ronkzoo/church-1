@@ -1,5 +1,6 @@
 package com.church.common.interceptor;
 
+import com.church.common.util.RequestLogTable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.ModelAndView;
@@ -14,17 +15,21 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class ChurchCommonInterceptor extends HandlerInterceptorAdapter{
 
-    private Logger log = LoggerFactory.getLogger(this.getClass());
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response,
         Object handler) throws Exception {
+
+        if (this.logger.isDebugEnabled()) {
+            RequestLogTable requestLogTable = new RequestLogTable(request);
+            requestLogTable.printLog();
+        }
         return true;
     }
 
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
         ModelAndView modelAndView) throws Exception {
 
-        System.out.println("postHandle................................" + System.currentTimeMillis());
     }
 
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response,
