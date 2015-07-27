@@ -16,8 +16,8 @@ public class HelloWorldController2 {
 
        private Logger logger= LoggerFactory.getLogger(this.getClass());
 
-        @Value("#{code['code.test']}")
-        private String test;
+       @Value("#{code['code.test']}")
+       private String test;
 
        @RequestMapping(value = "/hello2")
        public HelloWorldVo getAllEmployees()

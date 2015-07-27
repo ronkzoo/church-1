@@ -4,17 +4,17 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
        <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
-       <property name="poolName"                 value="springHikariCP" />
-       <property name="connectionTestQuery"      value="SELECT 1" />
-       <property name="dataSourceClassName"      value="com.mysql.jdbc.jdbc2.optional.MysqlDataSource" />
-       <property name="dataSourceProperties">
-              <props>
-                     <prop key="url">#{dbconfig['url']}</prop>
-                     <prop key="user">#{dbconfig['user']}</prop>
-                     <prop key="password">#{dbconfig['password']}</prop>
-              </props>
-       </property>
-</bean>
+           <property name="poolName"                 value="springHikariCP" />
+           <property name="connectionTestQuery"      value="SELECT 1" />
+           <property name="dataSourceClassName"      value="com.mysql.jdbc.jdbc2.optional.MysqlDataSource" />
+           <property name="dataSourceProperties">
+                  <props>
+                         <prop key="url">#{dbconfig['url']}</prop>
+                         <prop key="user">#{dbconfig['user']}</prop>
+                         <prop key="password">#{dbconfig['password']}</prop>
+                  </props>
+           </property>
+       </bean>
 
        <bean id="dataSource-spies" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
               <constructor-arg ref="hikariConfig" />

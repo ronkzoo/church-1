@@ -57,54 +57,6 @@ public class PaginationVo implements Serializable {
      */
     private int searchPageUnit = 0;
 
-    private String srtCol = "";
-    private String srtOrd = "";
-
-    private String searchKeyword = "";
-
-    /**
-     * @return the srtCol
-     */
-    public String getSrtCol() {
-        return srtCol;
-    }
-
-    /**
-     * @param srtCol the srtCol to set
-     */
-    public void setSrtCol(String srtCol) {
-        this.srtCol = srtCol;
-    }
-
-    /**
-     * @return the srtOrd
-     */
-    public String getSrtOrd() {
-        return srtOrd;
-    }
-
-    /**
-     * @param srtOrd the srtOrd to set
-     */
-    public void setSrtOrd(String srtOrd) {
-        this.srtOrd = srtOrd;
-    }
-
-
-    /**
-     * @return the searchKeyword
-     */
-    public String getSearchKeyword() {
-        return searchKeyword;
-    }
-
-    /**
-     * @param searchKeyword the searchKeyword to set
-     */
-    public void setSearchKeyword(String searchKeyword) {
-        this.searchKeyword = searchKeyword;
-    }
-
     /**
      * pageIndex
      *

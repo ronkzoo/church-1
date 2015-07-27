@@ -16,7 +16,18 @@ package com.church.common;
  * @version 1.0
  * 
  */
-public class ComConstants {
-    // CRLF
-    public static final String LINE_SEPARATOR = "\n";
+public enum ComConstants {
+
+    LINE_SEPARATOR,
+    PAGE_DEFAULT_UNIT_SIZE,
+    PAGE_DEFAULT_PAGE_SIZE;
+
+    @Override public String toString() {
+        switch (this){
+            case LINE_SEPARATOR:return "\n";
+            case PAGE_DEFAULT_UNIT_SIZE:return "10";
+            case PAGE_DEFAULT_PAGE_SIZE:return "10";
+            default:return "";
+        }
+    }
 }
