@@ -58,6 +58,11 @@ public class PaginationVo implements Serializable {
     private int searchPageUnit = 0;
 
     /**
+     * 총 게시글 수
+     */
+    private int totalRecordCount = 0;
+
+    /**
      * pageIndex
      *
      * @return the pageIndex
@@ -179,5 +184,19 @@ public class PaginationVo implements Serializable {
         this.searchPageUnit = searchPageUnit;
     }
 
+    /**
+     *
+     * @return
+     */
+    public int getTotalRecordCount() {
+        return totalRecordCount;
+    }
 
+    /**
+     *
+     * @param totalRecordCount
+     */
+    public void setTotalRecordCount(int totalRecordCount) {
+        this.totalRecordCount = totalRecordCount;
+    }
 }

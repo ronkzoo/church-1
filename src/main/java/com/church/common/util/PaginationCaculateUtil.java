@@ -21,15 +21,17 @@ public class PaginationCaculateUtil {
 
     private PaginationCaculateUtil(){}
 
-    public static void cacualtePagination(PaginationVo vo){
-        setFirstPageIndex(vo);
-    }
-
-    private static void setFirstPageIndex(PaginationVo vo){
+    public static void setFirstPageIndex(PaginationVo vo){
         if(vo.getPageIndex() != 1)
             vo.setFirstIndex(vo.getPageIndex() * vo.getPageUnit());
     }
 
+    public static void cacualtePagination(PaginationVo vo){
+        setTotalPageCount(vo);
+    }
 
+    private static void setTotalPageCount(PaginationVo vo) {
+        vo.setRecordCountPerPage((vo.getTotalRecordCount() / vo.getPageUnit()) +  (int)((vo.getTotalRecordCount() % vo.getPageUnit()) * 1));
+    }
 
 }

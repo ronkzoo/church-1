@@ -7,14 +7,14 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page isELIgnored="false"%>
+<%@ page isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
     <title>HelloWorld</title>
     <script src="<c:url value="/resources/gumby2/js/main.js" />"></script>
 </head>
@@ -42,16 +42,16 @@
                 </tr>
                 <tr>
                     <c:forEach begin="1" end="${calendar.bgnWeek - 1}" var="item" varStatus="status">
-                       <td>&nbsp;</td>
+                        <td>&nbsp;</td>
                     </c:forEach>
                     <c:set var="loopIndex" value="${calendar.bgnWeek - 1}"/>
-                    <c:forEach begin="1" end="${calendar.lastDay}" var="item"  varStatus="status">
-                        <c:set var="loopIndex" value="${loopIndex + 1}"/>
-                        <td> ${status.index} </td>
-                        <c:if test="${loopIndex % 7 == 0}">
-                 </tr>
-                 <tr>
-                        </c:if>
+                    <c:forEach begin="1" end="${calendar.lastDay}" var="item" varStatus="status">
+                    <c:set var="loopIndex" value="${loopIndex + 1}"/>
+                    <td> ${status.index} </td>
+                    <c:if test="${loopIndex % 7 == 0}">
+                </tr>
+                <tr>
+                    </c:if>
                     </c:forEach>
             </table>
 

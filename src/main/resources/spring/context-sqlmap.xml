@@ -1,9 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:mybatis="http://mybatis.org/schema/mybatis-spring"
+       xsi:schemaLocation=" http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd">
+    <!--
+        마이바티스를 스프링과 함께 사용하려면 스프링의 애플리케이션 컨텍스트에 적어도 두개를 정의해줄 필요가 있다.
+        두가지는 SqlSessionFactory와 한개 이상의 매퍼 인터페이스이다.
+        마이바티스 스프링 연동모듈에서, SqlSessionFactoryBean은 SqlSessionFactory를 만들기 위해 사용된다.
+        팩토리 빈을 설정하기 위해, 스프링 XML설정파일에 다음 설정을 추가하자.
+        마이바티스 스프링 연동모듈에서는, SqlSessionFactoryBean가 대신 사용된다.
 
-    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+       설정파일이 필요한 다른 이유는 마이바티스 XML파일이 매퍼 클래스와 동일한 클래스패스에 있지 않은 경우이다.
+       이 설정을 사용하면 두가지 옵션이 있다. 첫번째는 마이바티스 설정파일에 <mappers> 섹션을 사용해서 XML파일의 클래스패스를 지정하는 것이다.
+       두번째는 팩토리 빈의 mapperLocations 프로퍼티를 사용하는 것이다.
+
+        -->
+   <bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
+<!--   하나의 공통적인 프로퍼티는 마이바티스 XML설정파일의 위치를 지정하기 위해 사용되는 configLocation-->
+        <property name="configLocation" value="classpath:/sqlmap/mybatis-config.xml" />
+        <property name="mapperLocations">
+            <list>
+                <value>classpath:/sql/**/*.xml</value>
+            </list>
+        </property>
     </bean>
+    <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg index="0" ref="sqlSession"/>
+    </bean>
+
+    <!-- <mybatis:scan/> XML엘리먼트는 스프링에서 제공하는 <context:component-scan/> 엘리먼트와
+        매우 유사한 방법으로 매퍼를 검색할 것이다.-->
+    <mybatis:scan base-package="com.church.**.mappers" template-ref="sqlSessionTemplate"/>
+
 </beans>

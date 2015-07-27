@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.church.mngr.com.bbs.mappers.BbsMapper">
+
+    <sql id="searchWhere">
+        <if test="searchCondtion == 'title'">
+            AND BOARD_TITLE like CONCAT('%',#{searchKeyword},'%')
+        </if>
+        <if test="searchCondtion == 'id'">
+            AND BOARD_ID like CONCAT('%',#{searchKeyword},'%')
+        </if>
+        <if test="searchCondtion == 'all'">
+            AND (BOARD_TITLE like concat('%',#{searchKeyword},'%') or BOARD_ID LIKE concat('%',#{searchKeyword},'%'))
+        </if>
+    </sql>
+
+    <select id="selectT" resultType="hashMap">
+              SELECT * FROM LR_COMMON_CODE
+    </select>
+
+    <select id="selectBoardTotalCount" parameterType="hashMap" resultType="int">
+          SELECT COUNT(*)
+          FROM   LR_COMTNBBS B
+          WHERE  1 = 1
+          AND    IFNULL(DEL_STATUS,'N') = 'N'
+          <include refid="searchWhere" />
+    </select>
+
+    <select id="selectBoardList" parameterType="hashMap" resultType="hashMap">
+        SELECT  BOARD_SID ,BOARD_TITLE ,BOARD_SUMMARY ,BOARD_ID
+               ,MODIFY_DATE ,BOARD_ROW
+        FROM   LR_COMTNBBS B
+        WHERE  1 = 1
+        AND    IFNULL(DEL_STATUS,'N') = 'N'
+
+        <include refid="searchWhere" />
+
+        ORDER  BY DATA.REGISTER_DATE DESC
+        LIMIT #{firstIndex}, #{recordCountPerPage}
+    </select>
+
+<!--    <update id="deleteBoardData" parameterType="boardDataVO">
+        UPDATE FROM LR_COMTNBBS
+        SET DEL_STATUS = 'Y'
+        WHERE DATA_SID = #{dataSid}
+    </update>-->
+
+    <!--
+
+           &lt;!&ndash; 게시물 글보기  &ndash;&gt;
+           <select id="selectBoardDataOne" parameterType="boardSearchVO" resultType="boardDataVO">
+                  SELECT *
+                  FROM LR_COMTNBBSDATA DATA
+                  WHERE 1 = 1
+                  AND DATA_SID  = #{dataSid}
+                  AND DEL_STATUS = 'N'
+           </select>
+           &lt;!&ndash; 게시물 글쓰기 &ndash;&gt;
+           <insert id="insertBoardData" parameterType="boardDataVO">
+                  INSERT INTO LR_COMTNBBSDATA
+                  (
+                  BOARD_SID, BOARD_ID, USER_ID, USER_PW, USER_NICK, USER_EMAIL,
+                  DATA_TITLE, DATA_NOTICE, DATA_SECRET,DEL_STATUS,VIEW_COUNT,MODIFY_DATE,REGISTER_DATE
+                  )
+                  VALUES
+                  (
+                  #{boardSid}, #{boardId},#{userId},#{userPw},#{userNick},#{userEmail},
+                  #{dataTitle},#{dataNotice},#{dataSecretDel},#{delStatus},#{viewCount},#{modifyDate}, SYSDATE()
+                  )
+           </insert>
+           &lt;!&ndash; 게시물 수정 &ndash;&gt;
+           <update id="updateBoardData" parameterType="boardDataVO">
+                  UPDATE FROM LR_COMTNBBSDATA
+                  SET DATA_TITLE  = #{dataTitle}
+                  , DATA_NOTICE = #{dataNotice}
+                  , DATA_SECRET = #{dataSecret}
+                  , MODIFY_DATE = sysdate()
+                  WHERE DATA_SID = #{dataSid}
+           </update>
+           &lt;!&ndash; 게시물 상태 삭제로 변경 del_status = 'N'&ndash;&gt;
+           <update id="deleteBoardData" parameterType="boardDataVO">
+                  UPDATE FROM LR_COMTNBBSDATA
+                  SET DEL_STATUS = 'Y'
+                  WHERE DATA_SID = #{dataSid}
+           </update>-->
+</mapper>
+
+
