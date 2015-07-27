@@ -1,6 +1,5 @@
 package com.church;
 
-import com.church.mngr.com.bbs.web.MngrBoardController;
 import com.church.test.web.BbsController;
 import org.junit.Before;
 import org.junit.Test;
@@ -53,7 +52,7 @@ public class WebAppContextBoardControllerTest {
     @Test
     public void controllerTest() throws Exception {
         this.mockMvc
-            .perform(get("/b"))
+            .perform(get("/a/b/2222"))
             .andExpect((status().isOk()));
     }
 }

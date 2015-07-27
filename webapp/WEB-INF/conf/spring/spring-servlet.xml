@@ -13,6 +13,7 @@
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
     </context:component-scan>
 
+    <mvc:resources mapping="/test/**" location="/resources/test/" cache-period="31556926"/>
     <mvc:resources mapping="/gumby2/**" location="/resources/gumby2/" cache-period="31556926"/>
     <mvc:resources mapping="/js/**"     location="/resources/js/" cache-period="86400"/>
     <mvc:resources mapping="/style/**"  location="/resources/style/" cache-period="86400"/>
@@ -28,6 +29,7 @@
             <mvc:exclude-mapping path="/gumby2/**"/>
             <mvc:exclude-mapping path="/style/**"/>
             <mvc:exclude-mapping path="/image/**"/>
+            <mvc:exclude-mapping path="/test/**"/>
             <bean class="org.springframework.web.servlet.mvc.WebContentInterceptor">
                 <property name="cacheSeconds" value="0" />
             </bean>
