@@ -199,4 +199,5 @@ public class PaginationVo implements Serializable {
     public void setTotalRecordCount(int totalRecordCount) {
         this.totalRecordCount = totalRecordCount;
     }
+
 }

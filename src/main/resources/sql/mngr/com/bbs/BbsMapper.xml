@@ -24,7 +24,6 @@
           SELECT COUNT(*)
           FROM   LR_COMTNBBS B
           WHERE  1 = 1
-          AND    IFNULL(DEL_STATUS,'N') = 'N'
           <include refid="searchWhere" />
     </select>
 
@@ -33,12 +32,11 @@
                ,MODIFY_DATE ,BOARD_ROW
         FROM   LR_COMTNBBS B
         WHERE  1 = 1
-        AND    IFNULL(DEL_STATUS,'N') = 'N'
 
         <include refid="searchWhere" />
 
-        ORDER  BY DATA.REGISTER_DATE DESC
-        LIMIT #{firstIndex}, #{recordCountPerPage}
+        ORDER  BY B.REGISTER_DATE DESC
+        LIMIT ${firstIndex}, ${recordCountPerPage}
     </select>
 
 <!--    <update id="deleteBoardData" parameterType="boardDataVO">

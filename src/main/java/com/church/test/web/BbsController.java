@@ -19,7 +19,7 @@ import java.util.HashMap;
 
 /**
  * Created by LeeRyu on 2015-07-26.
- * com.church.test.web
+ * com.church.sql.web
  */
 @RequestMapping("/test/board")
 @Controller("bbsController")
@@ -42,8 +42,6 @@ public class BbsController {
     public String selectBoardList(HttpServletRequest request, HttpServletResponse response,
         @ModelAttribute("paginationVo") PaginationVo paginationVo, ModelMap model) throws Exception{
 
-        PaginationCaculateUtil.setFirstPageIndex(paginationVo);
-
         // 리스트
         model.addAttribute("bbsList", bbsService.selectBoardList(model));
         paginationVo.setTotalRecordCount(this.bbsService.selectBoardTotalCount(model));
@@ -52,7 +50,7 @@ public class BbsController {
 
         model.addAttribute("paginationVo", paginationVo);
 
-        return "template/test/list";
+        return "template/sql/list";
     }
 
 }

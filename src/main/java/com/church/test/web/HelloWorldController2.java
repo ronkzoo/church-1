@@ -16,8 +16,8 @@ public class HelloWorldController2 {
 
     /*   private Logger logger= LoggerFactory.getLogger(this.getClass());
 
-       @Value("#{code['code.test']}")
-       private String test;
+       @Value("#{code['code.sql']}")
+       private String sql;
 
        @RequestMapping(value = "/hello2")
        public HelloWorldVo getAllEmployees()
@@ -38,7 +38,7 @@ public class HelloWorldController2 {
            hello.setName(name);
            hello.setId("com");
 
-           logger.debug("spEl code test : " + test);
+           logger.debug("spEl code sql : " + sql);
            logger.debug(hello.toString());
 
            return hello;

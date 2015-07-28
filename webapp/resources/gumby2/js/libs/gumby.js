@@ -187,11 +187,11 @@
 				dataAttr = 'data-'+arguments[i],
 				gumbyAttr = 'gumby-'+arguments[i];
 
-			// first test for data-attr
+			// first sql for data-attr
 			if(this.is('['+dataAttr+']')) {
 				return this.attr(dataAttr) ? this.attr(dataAttr) : true;
 
-			// next test for gumby-attr
+			// next sql for gumby-attr
 			} else if(this.is('['+gumbyAttr+']')) {
 				return this.attr(gumbyAttr) ? this.attr(gumbyAttr) : true;
 

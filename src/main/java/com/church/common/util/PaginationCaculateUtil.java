@@ -2,6 +2,8 @@ package com.church.common.util;
 
 import com.church.common.ComConstants;
 import com.church.common.vo.PaginationVo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.annotation.Resource;
 
@@ -19,19 +21,25 @@ import javax.annotation.Resource;
  */
 public class PaginationCaculateUtil {
 
+    private static Logger logger = LoggerFactory.getLogger(PaginationCaculateUtil.class);
+
     private PaginationCaculateUtil(){}
 
-    public static void setFirstPageIndex(PaginationVo vo){
-        if(vo.getPageIndex() != 1)
-            vo.setFirstIndex(vo.getPageIndex() * vo.getPageUnit());
+    public static void cacualtePagination(PaginationVo vo){
+        setFirstPageIndex(vo);
+        setRecordCountPerPage(vo);
     }
 
-    public static void cacualtePagination(PaginationVo vo){
-        setTotalPageCount(vo);
+    private static void setFirstPageIndex(PaginationVo vo){
+        vo.setFirstIndex(((vo.getPageIndex() - 1) * vo.getPageUnit()));
+    }
+
+    private static void setRecordCountPerPage(PaginationVo vo) {
+        vo.setRecordCountPerPage(vo.getPageUnit());
     }
 
     private static void setTotalPageCount(PaginationVo vo) {
-        vo.setRecordCountPerPage((vo.getTotalRecordCount() / vo.getPageUnit()) +  (int)((vo.getTotalRecordCount() % vo.getPageUnit()) * 1));
+        vo.setTotalRecordCount((vo.getTotalRecordCount() / vo.getPageUnit()) +  (int)((vo.getTotalRecordCount() % vo.getPageUnit()) * 1));
     }
 
 }

@@ -1,6 +1,11 @@
 package com.church;
 
+import com.church.common.util.PaginationCaculateUtil;
+import com.church.common.vo.PaginationVo;
 import com.church.mngr.com.bbs.service.BbsService;
+import com.church.test.service.TestBbsDataService;
+import com.church.test.vo.TestVo;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -8,7 +13,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
+
 import javax.annotation.Resource;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Class Name   : com.church
@@ -33,16 +42,27 @@ import javax.annotation.Resource;
     "classpath:/sqlmap/mybatis-config.xml"
 })
 @TransactionConfiguration(transactionManager = "txManager", defaultRollback = true)
-public class TestBoardMain {
+public class TestBoardMain extends Assert {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    @Resource(name = "bbsService") BbsService bbsService;
+    @Resource(name = "testBbsDataService") TestBbsDataService testBbsDataService;
 
     @Test
-    public void test() {
+    public void test() throws Exception {
 
-        logger.debug("-TEST-");
+        TestVo tvo = new TestVo();
+        tvo.setPageIndex(1);
+        PaginationCaculateUtil.cacualtePagination(tvo);
+        logger.debug(" firstIndex :::: "+tvo.getFirstIndex());
+        // 리스트
+        List<Map<String, Object>> list =
+            (List<Map<String, Object>>) testBbsDataService.selectList(tvo);
+
+        tvo.setTotalRecordCount(this.testBbsDataService.selectListCount(tvo));
+        // 게시물 건수
+        logger.debug(tvo.toString());
+
     }
 
 

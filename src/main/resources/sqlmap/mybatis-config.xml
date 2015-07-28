@@ -23,9 +23,9 @@
 	-->
 <!-- 	<typeHandlers>
         Oracle 부적절한 열 유형 관련 오류 처리
-        <typeHandler javaType="String"             handler="egovframework.com.cmm.mapper.type.StringNullTypeHandler"/>
-        <typeHandler javaType="java.util.Date"     handler="egovframework.com.cmm.mapper.type.DateNullTypeHandler"/>
-        <typeHandler javaType="java.lang.Integer"  handler="egovframework.com.cmm.mapper.type.IntegerNullTypeHandler"/>
+        <typeHandler javaType="String"             handler="egovframework.com.cmm.mappers.type.StringNullTypeHandler"/>
+        <typeHandler javaType="java.util.Date"     handler="egovframework.com.cmm.mappers.type.DateNullTypeHandler"/>
+        <typeHandler javaType="java.lang.Integer"  handler="egovframework.com.cmm.mappers.type.IntegerNullTypeHandler"/>
 	</typeHandlers> -->
 
 	<!--
@@ -39,9 +39,9 @@
 
     <!-- java.sql.Timestamp 를 java.util.Date 형으로 반환-->
     <typeHandlers>
-        <typeHandler handler="org.apache.mybatis.type.DateTypeHandler" javaType="java.sql.Timestamp" />
-        <typeHandler handler="org.apache.mybatis.type.DateTypeHandler" javaType="java.sql.Time" />
-        <typeHandler handler="org.apache.mybatis.type.DateTypeHandler" javaType="java.sql.Date" />
+        <typeHandler handler="org.apache.ibatis.type.DateTypeHandler" javaType="java.sql.Timestamp" />
+        <typeHandler handler="org.apache.ibatis.type.DateTypeHandler" javaType="java.sql.Time" />
+        <typeHandler handler="org.apache.ibatis.type.DateTypeHandler" javaType="java.sql.Date" />
     </typeHandlers>
 
     <!-- Register all interfaces in a package as mappers -->

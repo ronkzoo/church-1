@@ -24,7 +24,7 @@ public class TestController {
 
         logger.debug("paginationVo.getFirstIndex() :::: ", paginationVo.getFirstIndex());
 
-        return "template/test/"+name;
+        return "template/sql/"+name;
     }
 
 

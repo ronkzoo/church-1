@@ -31,15 +31,15 @@ public class AntStylePatternTestClass {
         // single asterisks
         assertThat(true, is(checkAntPattern("/static/*", "/static/a.jpg")));
         assertThat(true, is(checkAntPattern("/static/*", "/static/namkyuProfilePicture.jpg")));
-        assertThat(false, is(checkAntPattern("/static/*", "/static/a/test.jpg")));
-        assertThat(false, is(checkAntPattern("/static/*", "/static/a/b/c/d/test.jpg")));
-        assertThat(true, is(checkAntPattern("/static*/*", "/static/test.jpg")));
-        assertThat(true, is(checkAntPattern("/static*/*", "/static1/test.jpg")));
-        assertThat(true, is(checkAntPattern("/static*/*", "/static123/test.jpg")));
-        assertThat(true, is(checkAntPattern("/static*/*", "/static-123/test.jpg")));
-        assertThat(true, is(checkAntPattern("/static*/*", "/static~!@#$%^&*()_+}{|/test.jpg")));
-        assertThat(false, is(checkAntPattern("/static*/*", "/static12/a/test.jpg")));
-        assertThat(false, is(checkAntPattern("/static*/*", "/static12/a/b/test.jpg")));
+        assertThat(false, is(checkAntPattern("/static/*", "/static/a/sql.jpg")));
+        assertThat(false, is(checkAntPattern("/static/*", "/static/a/b/c/d/sql.jpg")));
+        assertThat(true, is(checkAntPattern("/static*/*", "/static/sql.jpg")));
+        assertThat(true, is(checkAntPattern("/static*/*", "/static1/sql.jpg")));
+        assertThat(true, is(checkAntPattern("/static*/*", "/static123/sql.jpg")));
+        assertThat(true, is(checkAntPattern("/static*/*", "/static-123/sql.jpg")));
+        assertThat(true, is(checkAntPattern("/static*/*", "/static~!@#$%^&*()_+}{|/sql.jpg")));
+        assertThat(false, is(checkAntPattern("/static*/*", "/static12/a/sql.jpg")));
+        assertThat(false, is(checkAntPattern("/static*/*", "/static12/a/b/sql.jpg")));
 
         assertThat(true, is(checkAntPattern("/church/**", "/church/download/boardid/aaa.txt")));
 
