@@ -1,5 +1,6 @@
 package com.church.mngr.bbs.vo;
 
+import com.church.common.vo.ComDefaultVO;
 import org.apache.ibatis.type.Alias;
 
 import java.io.Serializable;
@@ -10,7 +11,7 @@ import java.util.Date;
  * com.church.mngr.bbs.vo
  */
 @Alias("boardVO")
-public class BoardVO implements Serializable{
+public class BoardVO extends ComDefaultVO implements Serializable{
 
     /**
      *
