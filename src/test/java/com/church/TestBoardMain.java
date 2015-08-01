@@ -52,16 +52,17 @@ public class TestBoardMain extends Assert {
     public void test() throws Exception {
 
         TestVo tvo = new TestVo();
-        tvo.setPageIndex(1);
+        tvo.setPageIndex(3);
         PaginationCaculateUtil.cacualtePagination(tvo);
-        logger.debug(" firstIndex :::: "+tvo.getFirstIndex());
+        logger.debug(" firstIndex :::: " + tvo.getFirstIndex());
         // 리스트
-        List<Map<String, Object>> list =
-            (List<Map<String, Object>>) testBbsDataService.selectList(tvo);
+        List<Map<String, Object>> list = (List<Map<String, Object>>) testBbsDataService.selectList(tvo);
 
         tvo.setTotalRecordCount(this.testBbsDataService.selectListCount(tvo));
         // 게시물 건수
         logger.debug(tvo.toString());
+
+
 
     }
 

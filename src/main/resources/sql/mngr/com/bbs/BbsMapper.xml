@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.church.mngr.com.bbs.mappers.BbsMapper">
+<mapper namespace="com.church.mngr.bbs.mappers.BbsMapper">
 
     <sql id="searchWhere">
         <if test="searchCondtion == 'title'">
@@ -20,6 +20,7 @@
               SELECT * FROM LR_COMMON_CODE
     </select>
 
+<<<<<<< HEAD
     <select id="selectBoardTotalCount" parameterType="hashMap" resultType="int">
           SELECT COUNT(*)
           FROM   LR_COMTNBBS B
@@ -37,13 +38,80 @@
 
         ORDER  BY B.REGISTER_DATE DESC
         LIMIT ${firstIndex}, ${recordCountPerPage}
+=======
+    <select id="selectBoardTotalCount" parameterType="hashMap"
+            resultType="int">
+              SELECT COUNT(*)
+              FROM   LR_COMTNBBS B
+              WHERE  1 = 1
+              AND    BOARD_DEL_FN = 'N'
+              <include refid="searchWhere" />
     </select>
 
-<!--    <update id="deleteBoardData" parameterType="boardDataVO">
-        UPDATE FROM LR_COMTNBBS
-        SET DEL_STATUS = 'Y'
-        WHERE DATA_SID = #{dataSid}
-    </update>-->
+    <select id="selectBoardList" parameterType="hashMap"
+            resultType="hashMap">
+        SELECT BOARD_SID
+             , BOARD_ID
+             , BOARD_ROW
+             , BOARD_TITLE
+             , BOARD_DEL_FN
+             , BOARD_FILE_CNT
+             , BOARD_FILE_SIZE
+             , BOARD_SUMMARY
+             , (SELECT EXT_DESC FROM LR_COMTNBBSEXT E WHERE E.EXT_SID = B.EXT_SID) EXT_DESC
+        FROM   LR_COMTNBBS B
+        WHERE  1 = 1
+        AND    BOARD_DEL_FN = 'N'
+        ORDER BY B.REGISTER_DATE DESC
+            <include refid="searchWhere" />
+        LIMIT #{firstIndex}, #{recordCountPerPage}
+>>>>>>> leeryu/master
+    </select>
+
+    <!-- -->
+    <update id="deleteBoard" parameterType="boardVO">
+        UPDATE LR_COMTNBBS
+        SET    BOARD_DEL_FN = 'Y'
+        WHERE  BOARD_SID = #{boardSid}
+    </update>
+
+    <!-- -->
+    <select id="boardView" parameterType="boardVO" resultType="boardVO" >
+        SELECT BOARD_SID
+             , BOARD_ID
+             , BOARD_ROW
+             , BOARD_TITLE
+             , BOARD_DEL_FN
+             , BOARD_FILE_CNT
+             , BOARD_FILE_SIZE
+             , BOARD_SUMMARY
+             , (SELECT EXT_DESC FROM LR_COMTNBBSEXT E WHERE E.EXT_SID = B.EXT_SID) EXT_DESC
+        FROM   LR_COMTNBBS B
+        WHERE  BOARD_SID = #{boardSid}
+        AND    BOARD_ID  = #{boardId}
+        AND    BOARD_DEL_FN = 'N'
+    </select>
+    <!-- -->
+    <insert id="insertBoard" parameterType="boardVO">
+        INSERT INTO LR_COMTNBBS
+        (BOARD_TITLE, BOARD_SUMMARY, BOARD_ID, MODIFY_DATE, REGISTER_DATE, BOARD_DEL_FN, BOARD_ROW
+        ,BOARD_FILE_SIZE, BOARD_FILE_CNT, EXT_SID)
+        VALUES
+        (#{boardTitle},#{boardSummary},#{boardId},#{modifyDate},sysdate(),#{boardDelFn},#{boardRow}
+        ,#{boardFileSize},#{boardFileCnt},#{extSid})
+    </insert>
+
+    <update id="updateBoard" parameterType="boardVO">
+        UPDATE LR_COMTNBBS
+        SET    BOARD_TITLE     = #{boardTitle}
+             , BOARD_SUMMARY   = #{boardSummary}
+             , MODIFY_DATE     = sysdate()
+             , BOARD_DEL_FN    = #{boardDelFn}
+             , BOARD_ROW       = #{boardRow}
+             , BOARD_FILE_CNT  = #{boardFileCnt}
+             , BOARD_FILE_SIZE = #{boardFileSize}
+        WHERE BOARD_SID = #{boardSid}
+    </update>
 
     <!--
 
