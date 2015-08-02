@@ -62,8 +62,6 @@ public class TestBoardMain extends Assert {
         // 게시물 건수
         logger.debug(tvo.toString());
 
-
-
     }
 
 
