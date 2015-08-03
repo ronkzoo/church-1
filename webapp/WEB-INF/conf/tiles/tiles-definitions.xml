@@ -8,16 +8,19 @@
     <definition name="defaultTemplate" template="/WEB-INF/jsp/tiles/template/default-layout.jsp">
         <put-attribute name="title"         value="영도복음교회" type="string" />
         <put-attribute name="head"          value="/WEB-INF/jsp/tiles/attr/head.jsp" />
-        <put-attribute name="javascript"    value="/WEB-INF/jsp/tiles/attr/javascript.jsp" />
         <put-attribute name="top"           value="/WEB-INF/jsp/tiles/attr/top.jsp" />
         <put-attribute name="left"          value="/WEB-INF/jsp/tiles/attr/left.jsp" />
         <put-attribute name="bottom"        value="/WEB-INF/jsp/tiles/attr/footer.jsp" />
     </definition>
 
     <!-- Test Template -->
-    <definition name="template/*/*" extends="defaultTemplate">
-        <put-attribute name="contents"      value="/WEB-INF/jsp/pages/{1}/{2}.jsp" />
+    <definition name="hmpg/*/*" extends="defaultTemplate">
+        <put-attribute name="contents"      value="/WEB-INF/jsp/pages/hmpg/{1}/{2}.jsp" />
     </definition>
 
+    <!-- Test Template -->
+    <definition name="test/*/*" extends="defaultTemplate">
+        <put-attribute name="contents"      value="/WEB-INF/jsp/pages/test/{1}/{2}.jsp" />
+    </definition>
 
 </tiles-definitions>

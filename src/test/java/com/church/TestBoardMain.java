@@ -1,8 +1,6 @@
 package com.church;
 
 import com.church.common.util.PaginationCaculateUtil;
-import com.church.common.vo.PaginationVo;
-import com.church.mngr.com.bbs.service.BbsService;
 import com.church.test.service.TestBbsDataService;
 import com.church.test.vo.TestVo;
 import org.junit.Assert;
@@ -15,7 +13,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 
 import javax.annotation.Resource;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
