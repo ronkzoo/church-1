@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
-  <!-- gnb -->
-  <jsp:include page="/WEB-INF/jsp/pages/hmpg/include/include_gnb.jsp"/>
+<jsp:include page="/WEB-INF/jsp/pages/include/include_commonTags.jsp"/>
+<!-- gnb -->
+<jsp:include page="/WEB-INF/jsp/pages/include/include_gnb.jsp"/>
 

@@ -20,25 +20,6 @@
               SELECT * FROM LR_COMMON_CODE
     </select>
 
-<<<<<<< HEAD
-    <select id="selectBoardTotalCount" parameterType="hashMap" resultType="int">
-          SELECT COUNT(*)
-          FROM   LR_COMTNBBS B
-          WHERE  1 = 1
-          <include refid="searchWhere" />
-    </select>
-
-    <select id="selectBoardList" parameterType="hashMap" resultType="hashMap">
-        SELECT  BOARD_SID ,BOARD_TITLE ,BOARD_SUMMARY ,BOARD_ID
-               ,MODIFY_DATE ,BOARD_ROW
-        FROM   LR_COMTNBBS B
-        WHERE  1 = 1
-
-        <include refid="searchWhere" />
-
-        ORDER  BY B.REGISTER_DATE DESC
-        LIMIT ${firstIndex}, ${recordCountPerPage}
-=======
     <select id="selectBoardTotalCount" parameterType="hashMap"
             resultType="int">
               SELECT COUNT(*)
@@ -65,7 +46,6 @@
         ORDER BY B.REGISTER_DATE DESC
             <include refid="searchWhere" />
         LIMIT #{firstIndex}, #{recordCountPerPage}
->>>>>>> leeryu/master
     </select>
 
     <!-- -->

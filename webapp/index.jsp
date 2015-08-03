@@ -44,6 +44,8 @@
 
 <body>
 
+    <jsp:include page="/WEB-INF/jsp/pages/include/include_gnb.jsp"/>
+
 <!-- Header Carousel -->
 <header id="myCarousel" class="carousel slide">
     <!-- Indicators -->
