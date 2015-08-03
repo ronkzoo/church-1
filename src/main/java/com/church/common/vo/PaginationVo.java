@@ -57,53 +57,10 @@ public class PaginationVo implements Serializable {
      */
     private int searchPageUnit = 0;
 
-    private String srtCol = "";
-    private String srtOrd = "";
-
-    private String searchKeyword = "";
-
     /**
-     * @return the srtCol
+     * 총 게시글 수
      */
-    public String getSrtCol() {
-        return srtCol;
-    }
-
-    /**
-     * @param srtCol the srtCol to set
-     */
-    public void setSrtCol(String srtCol) {
-        this.srtCol = srtCol;
-    }
-
-    /**
-     * @return the srtOrd
-     */
-    public String getSrtOrd() {
-        return srtOrd;
-    }
-
-    /**
-     * @param srtOrd the srtOrd to set
-     */
-    public void setSrtOrd(String srtOrd) {
-        this.srtOrd = srtOrd;
-    }
-
-
-    /**
-     * @return the searchKeyword
-     */
-    public String getSearchKeyword() {
-        return searchKeyword;
-    }
-
-    /**
-     * @param searchKeyword the searchKeyword to set
-     */
-    public void setSearchKeyword(String searchKeyword) {
-        this.searchKeyword = searchKeyword;
-    }
+    private int totalRecordCount = 0;
 
     /**
      * pageIndex
@@ -227,5 +184,20 @@ public class PaginationVo implements Serializable {
         this.searchPageUnit = searchPageUnit;
     }
 
+    /**
+     *
+     * @return
+     */
+    public int getTotalRecordCount() {
+        return totalRecordCount;
+    }
+
+    /**
+     *
+     * @param totalRecordCount
+     */
+    public void setTotalRecordCount(int totalRecordCount) {
+        this.totalRecordCount = totalRecordCount;
+    }
 
 }

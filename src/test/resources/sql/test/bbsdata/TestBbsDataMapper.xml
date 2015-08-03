@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.church.test.mappers.TestBbsDataMapper">
+
+    <sql id="searchWhere">
+
+    </sql>
+
+
+    <select id="selectList" parameterType="hashMap" resultType="hashMap">
+      SELECT
+             DATA_SID
+            ,BOARD_SID
+            ,BOARD_ID
+            ,USER_ID
+            ,USER_PW
+            ,USER_NICK
+            ,USER_EMAIL
+            ,DATA_TITLE
+            ,DATA_NOTICE
+            ,DATA_SECRET
+            ,DEL_STATUS
+            ,VIEW_COUNT
+            ,MODIFY_DATE
+            ,REGISTER_DATE
+            ,CATEGORY_CODE1
+            ,CATEGORY_CODE2
+            ,CATEGORY_CODE3
+      FROM  LR_COMTNBBSDATA
+      WHERE 1 = 1
+      ORDER BY REGISTER_DATE DESC
+        <include refid="searchWhere" />
+      LIMIT ${firstIndex}, ${recordCountPerPage}
+    </select>
+
+    <select id="selectListCount" parameterType="hashMap" resultType="int">
+        SELECT COUNT(*)
+        FROM   LR_COMTNBBSDATA B
+        WHERE  1 = 1
+        <include refid="searchWhere" />
+    </select>
+
+
+
+
+
+</mapper>
+
+

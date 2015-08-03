@@ -17,7 +17,7 @@ public class JavaFileIOTest {
 
     @Test public void Test() {
 
-        String fromPath = "D:\\new-source\\church\\webapp\\upload_data\\test.txt";
+        String fromPath = "D:\\new-source\\church\\webapp\\upload_data\\sql.txt";
         String toPath = "D:\\new-source\\church\\webapp\\upload_data\\aaa.txt";
 
         copyFile(fromPath, toPath);
@@ -51,7 +51,7 @@ public class JavaFileIOTest {
     }
     public void AA() {
 
-        File file = new File("D:\\new-source\\church\\webapp\\upload_data\\test.txt");
+        File file = new File("D:\\new-source\\church\\webapp\\upload_data\\sql.txt");
         try {
             FileInputStream fis = null;
             FileOutputStream fos = null;

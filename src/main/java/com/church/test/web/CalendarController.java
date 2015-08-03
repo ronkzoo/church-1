@@ -65,7 +65,7 @@ public class CalendarController extends HttpServlet {
 
         model.addAttribute("calendar",vo);
 
-        return new ModelAndView("template/test/Calendar");
+        return new ModelAndView("template/sql/Calendar");
     }
 
     @RequestMapping(value = "/calendar/{year}/{month}")
@@ -114,7 +114,7 @@ public class CalendarController extends HttpServlet {
         model.addAttribute("route","calendar");
         model.addAttribute("calendar",vo);
 
-        return new ModelAndView("template/test/Calendar");
+        return new ModelAndView("template/sql/Calendar");
 
     }
 
@@ -164,7 +164,7 @@ public class CalendarController extends HttpServlet {
         model.addAttribute("route", "jodaCalendar");
         model.addAttribute("calendar",vo);
 
-        return new ModelAndView("template/test/Calendar");
+        return new ModelAndView("template/sql/Calendar");
     }
 
 }

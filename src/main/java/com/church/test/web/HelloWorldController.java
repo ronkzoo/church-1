@@ -39,7 +39,7 @@ public class HelloWorldController {
 
         model.addAttribute("hello", hello);
         logger.debug("/hello/name ");
-        return "template/test/"+name;
+        return "template/sql/"+name;
     }
 
 
